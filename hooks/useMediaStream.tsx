@@ -1,9 +1,11 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 
 export const useMediaStream = () => {
   const [state, setState] = useState<MediaStream>();
   const isStreamSet = useRef(false);
   async function initStream() {
+    console.log("infunction");
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: true,
@@ -17,7 +19,7 @@ export const useMediaStream = () => {
     }
   }
   useEffect(() => {
-    if (isStreamSet) return;
+    if (isStreamSet?.current) return;
     initStream();
   }, []);
 

@@ -1,3 +1,5 @@
+"use client";
+import Player from "@/components/Player";
 import { useSocket } from "@/context/socket";
 import { useMediaStream } from "@/hooks/useMediaStream";
 import usePeer from "@/hooks/usePeer";
@@ -12,7 +14,11 @@ const Room = () => {
       console.log(socket?.id);
     });
   }, []);
-  return <div>Room</div>;
+  return (
+    <div>
+      <Player url={stream} muted playerId={myId} playing />
+    </div>
+  );
 };
 
 export default Room;

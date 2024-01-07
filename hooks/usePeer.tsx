@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 const usePeer = () => {
   const [peer, setPeer] = useState(null);
   const [myId, setMyId] = useState("");
