@@ -1,0 +1,33 @@
+$primary-color: #212529;
+$secondary-color: #343a40;
+$button-color: #d90429;
+
+.root {
+  background: $primary-color;
+  text-align: center;
+  max-width: 600px;
+  margin: 24px auto;
+  border: 2px solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  .button {
+    background: $button-color;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+  .enterRoom {
+    margin-top: 24px;
+  }
+  .input {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 8px;
+  }
+  .seprator {
+    margin: 24px 0px;
+  }
+}

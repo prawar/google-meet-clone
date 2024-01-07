@@ -28,7 +28,7 @@ const Sockethandler = (res: NextApiResponseWithSocket, req: NextApiRequest) => {
       console.log("server is connected");
     });
   }
-  res.end();
+  res?.end();
 };
 
 
