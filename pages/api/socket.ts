@@ -3,6 +3,7 @@ import type { Server as HTTPServer } from "http";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { Socket as NetSocket } from "net";
 import type { Server as IOServer } from "socket.io";
+import { SOCKET } from "@/constant";
 
 interface SocketServer extends HTTPServer {
   io?: IOServer | undefined;
@@ -17,7 +18,7 @@ interface NextApiResponseWithSocket extends NextApiResponse {
 }
 
 const Sockethandler = (res: NextApiResponseWithSocket, req: NextApiRequest) => {
-  console.log("hereee")
+  console.log("hereee");
   if (res?.socket?.server?.io) {
     console.log("socket already connected");
   } else {
@@ -26,10 +27,14 @@ const Sockethandler = (res: NextApiResponseWithSocket, req: NextApiRequest) => {
 
     io.on("connection", (socket) => {
       console.log("server is connected");
+      socket.on(SOCKET.joinRoom, (roomId, id) => {
+        console.log(`a new user ${roomId} ${id}`);
+        socket.join(roomId);
+        socket.broadcast.to(roomId).emit(SOCKET.userConnected, id);
+      });
     });
   }
   res?.end();
 };
-
 
 export default Sockethandler;

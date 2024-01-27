@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 
 type PlayerPropType = {
   playerId: string;
-  url: string;
+  url: string | MediaStream;
   muted: boolean;
   playing: boolean;
 };
