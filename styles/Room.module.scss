@@ -1,0 +1,18 @@
+.activePlayerContainer {
+  position: absolute;
+  top: 20px;
+  bottom: 50px;
+  width: calc(100% - 120px);
+}
+.inactivePlayerContainer {
+  width: 200px;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+}
+.root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}

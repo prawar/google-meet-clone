@@ -24,6 +24,7 @@ const usePeer = () => {
         console.log(id);
         setMyId(id);
         console.log(`the peer id is ${id}`);
+        //@ts-ignore
         socket?.emit(SOCKET.joinRoom, roomId, id);
       });
     })();

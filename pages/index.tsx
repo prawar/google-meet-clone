@@ -4,7 +4,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
-  const [roomId, setRoomId] = useState();
+  const [roomId, setRoomId] = useState<string>("");
   const router = useRouter();
   const createLobby = () => {
     const roomId = uuidv4();
@@ -17,7 +17,8 @@ export default function Home() {
         <input
           className={s.input}
           onChange={(e) => {
-            setRoomId(e.target.value);
+            const { value } = e.target;
+            setRoomId(value);
           }}
         />
         <button
